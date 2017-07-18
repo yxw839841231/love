@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="易天下,天下,易"/>
+    <meta name="description" content="易天下">
+    <title>易天下</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://ohwphyjeu.bkt.clouddn.com/ytx-logo.ico"/>
+    <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .number{float: left;height: 30px;width: 30px;text-align: center;line-height: 30px;margin-left: 5px;cursor: pointer;background: #66effc}
+    </style>
+    <script type="text/javascript">
+        function getNumber(){
+            var mod = $("input[name='mod']:checked").val();
+            var xt = $("input[name='xt']").val();
+            var checked = $(":checkbox[name=xt]").attr("checked");
+            alert(checked)
+            return;
+            $.ajax({
+                url:"/back/number",
+                data:{mod:1},
+                success:function (data) {
+                    for(var a of data.value){
+                        $("#textArea").append(a+" ")
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body style="margin: 0;padding: 0;">
+<div style="width: 1198px;height: 942px;background: #b3d3e7;margin: 0;padding: 0;border: 1px solid #b3d3e7;">
+    <div style="margin-top:3px;width: 1198px;height: 35px;">
+        <fieldset>
+            <legend>特别排除</legend>
+            <div style="float: left;">
+                <fieldset style="width: 200px;">
+                    <legend>012路</legend>
+                    <input type="radio" id="mod0" value="0" name="mod"> <label for="mod0">0路</label>&nbsp;&nbsp;
+                    <input type="radio" id="mod1" value="1" name="mod"> <label for="mod1">1路</label>&nbsp;&nbsp;
+                    <input type="radio" id="mod2" value="2" name="mod"> <label for="mod2">2路</label>
+                </fieldset>
+            </div>
+            <div style="float: left;">
+                <fieldset style="width: 500px;">
+                    <legend>特殊形态</legend>
+                    <input type="checkbox" id="xt5" value="5" name="xt"> <label for="xt5">5连&nbsp;&nbsp;</label>
+                    <input type="checkbox" id="xt4" value="4" name="xt"> <label for="xt4">4连&nbsp;&nbsp;</label>
+                    <input type="checkbox" id="xt3" value="3" name="xt"> <label for="xt3">上山&nbsp;&nbsp;</label>
+                    <input type="checkbox" id="xt2" value="2" name="xt"> <label for="xt2">下山&nbsp;&nbsp;</label>
+                    <input type="checkbox" id="xt1" value="1" name="xt"> <label for="xt1">AAAAA&nbsp;&nbsp;</label>
+                    <input type="checkbox" id="xt0" value="0" name="xt"> <label for="xt0">AAAAB&nbsp;&nbsp;</label>
+                </fieldset>
+            </div>
+            <div style="clear: both"></div>
+            <div style="float: left;">
+                <fieldset style="width: 500px;">
+                    <legend>特别排除</legend>
+                    <input type="checkbox"> 5连&nbsp;&nbsp;
+                    <input type="checkbox"> 4连&nbsp;&nbsp;
+                    <input type="checkbox"> 上山&nbsp;&nbsp;
+                    <input type="checkbox"> 下山&nbsp;&nbsp;
+                    <input type="checkbox"> AAAAA&nbsp;&nbsp;
+                    <input type="checkbox"> AAAAB&nbsp;&nbsp;
+                </fieldset>
+            </div>
+            <div style="clear: both"></div>
+            <div style="float: left;">
+                <fieldset style="width: 500px;">
+                    <legend>胆组</legend>
+                    <div class="number">0</div><div class="number">1</div><div class="number">2</div><div class="number">3</div><div class="number">4</div><div class="number">5</div><div class="number">6</div><div class="number">7</div><div class="number">8</div><div class="number">0</div>
+                    <div style="clear: both;height: 3px;"></div>
+                    <div class="number">0</div><div class="number">1</div><div class="number">2</div><div class="number">3</div><div class="number">4</div><div class="number">5</div><div class="number">6</div><div class="number">7</div><div class="number">8</div><div class="number">0</div>
+                    <div style="clear: both;height: 3px;"></div>
+                    <div class="number">0</div><div class="number">1</div><div class="number">2</div><div class="number">3</div><div class="number">4</div><div class="number">5</div><div class="number">6</div><div class="number">7</div><div class="number">8</div><div class="number">0</div>
+                    <div style="clear: both;height: 3px;"></div>
+                    <div class="number">0</div><div class="number">1</div><div class="number">2</div><div class="number">3</div><div class="number">4</div><div class="number">5</div><div class="number">6</div><div class="number">7</div><div class="number">8</div><div class="number">0</div>
+                    <div style="clear: both;height: 3px;"></div>
+                    <div class="number">0</div><div class="number">1</div><div class="number">2</div><div class="number">3</div><div class="number">4</div><div class="number">5</div><div class="number">6</div><div class="number">7</div><div class="number">8</div><div class="number">0</div>
+                </fieldset>
+            </div>
+            <div style="float: right;"><button onclick="getNumber()">&nbsp;缩水出号&nbsp;</button></div>
+        </fieldset>
+    </div>
+    <textarea style="margin-top: 312px;width: 1193px;height: 588px;" id="textArea"> </textarea>
+</div>
+</body>
+</html>

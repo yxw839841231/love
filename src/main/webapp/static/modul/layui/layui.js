@@ -51,6 +51,8 @@ modules = {
   ,carousel: 'modules/carousel' //轮播
   ,code: 'modules/code' //代码修饰器
   ,jquery: 'modules/jquery' //DOM库（第三方）
+
+  ,zjoin: 'modules/zjoin' //DOM库（第三方）
   
   ,mobile: 'modules/mobile' //移动大模块 | 若当前为开发目录，则为移动模块入口，否则为移动模块集合
   ,'layui.all': 'dest/layui.all' //PC模块合并版
@@ -120,10 +122,10 @@ Lay.fn.use = function(apps, callback, exports){
   function onScriptLoad(e, url){
     var readyRegExp = navigator.platform === 'PLaySTATION 3' ? /^complete$/ : /^(complete|loaded)$/
     if (e.type === 'load' || (readyRegExp.test((e.currentTarget || e.srcElement).readyState))) {
-      config.modules[item] = url;
       head.removeChild(node);
       (function poll() {
         if(++timeout > config.timeout * 1000 / 4){
+          console.error("模块："+url+" 加载超时");
           return error(item + ' is not a valid module');
         };
         config.status[item] ? onCallback() : setTimeout(poll, 4);

@@ -1,0 +1,278 @@
+*{
+	font-family: Microsoft YaHei;
+}
+ul,ol{
+	list-style: none;
+}
+body{background: #eee;}
+
+.no-padding{
+	padding: 0;
+}
+.no-padding-x{
+	padding-left: 0;
+	padding-right: 0;
+}
+.no-padding-x-1{
+	padding: 5px 1px;
+}
+.no-padding-x-5{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.container-fuilt{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.row{
+	margin-left: 0;
+	margin-right: 0;
+}
+.no-margin{
+	margin: 0;
+}
+.margin-bottom-default{
+	margin-bottom: 15px;
+}
+.bg-gray{
+	background-color: gray!important;
+}
+.bg-light-gray{
+	background-color: #eee!important;
+}
+.text-gray{
+	color: gray!important;
+}
+.to-a-gray a{
+	color: gray!important;
+}
+.fuilt{
+	width: 100%;
+}
+// a,a:hover, a:focus{
+// 	color:#468847;
+// }
+
+
+.panel-gray{
+	border-color: gray;
+}
+.panel-gray>.panel-heading{
+	background-color: gray;
+	color: #fff!important;
+}
+.navbar-primary{
+	background-color:#428bca!important;
+	border-color:#428bca!important;
+}
+.navbar-primary .navbar-nav>li>a{
+	color:#fff!important;
+	border-color:#428bca!important;
+}
+.navbar-primary .navbar-nav>li>a:hover{
+	background-color:#2c5976!important;
+}
+.navbar-primary .navbar-toggle,.nav .open>a, .nav .open>a:hover, .nav .open>a:focus{
+	background-color:#2c5976!important;
+}
+.navbar-primary .navbar-brand{
+	color:#fff!important;
+}
+.navbar-primary .navbar-toggle{
+	border-color:#2c5976!important;
+}
+.navbar-primary .navbar-collapse, .navbar-primary .navbar-form{
+	border-color:#428bca!important;
+}
+.navbar-primary .navbar-toggle .icon-bar {
+    background-color: #009E94;
+}
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+.select-open,.penal-open,.cursor,#checkpictureimg{
+	cursor: pointer;
+}
+.bold{
+	font-weight: bold;
+}
+
+.list-group-item{
+	padding: 8px 15px;
+}
+.panel>.list-group:last-child .list-group-item:last-child{
+
+	padding: 7.5px 15px;
+}
+
+.dropdown-menu>li>a:hover{
+	background-color: #d9edf7;
+}
+
+
+
+
+.label-grey,.badge-grey{background-color:#a0a0a0!important}.label-info,.badge-info{background-color:#3a87ad!important}.label-primary,.badge-primary{background-color:#428bca!important}.label-success,.badge-success{background-color:#82af6f!important}.label-danger,.badge-danger{background-color:#d15b47!important}.label-important,.badge-important{background-color:#d15b47!important}.label-inverse,.badge-inverse{background-color:#333!important}.label-warning,.badge-warning{background-color:#f89406!important}.label-pink,.bg-pink,.badge-pink{background-color:#d6487e!important}.label-purple,.badge-purple{background-color:#9585bf!important}.label-yellow,.badge-yellow{background-color:#fee188!important}.label-light,.badge-light{background-color:#e7e7e7!important}.badge-yellow,.label-yellow{color:#963!important;border-color:#fee188}.badge-light,.label-light{color:#888!important}
+
+
+
+.panel-title .btn-xs, .panel-title.btn-group-xs>.btn{
+	line-height: 12px;
+	padding: 0 5px;
+}
+
+.list-group{
+	margin-bottom: 0;
+}
+.form-horizontal .form-group{
+	margin-left: 0;
+	margin-right: 0;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+
+
+.panel {
+	margin-bottom: 3px;
+}
+
+.new p{
+	text-indent: 2em;
+}
+.new h4{
+	cursor: pointer;
+}
+.none{
+	display: none;
+}
+label{
+	text-align: right;
+	line-height: 34px;
+}
+
+.pBillInfo{
+	color:#333;margin-top:20px;font-size:12px;
+}
+
+ul.page{
+	padding-left:0;
+	margin-left: 0;
+}
+
+ul.page li{
+	float: left;
+	color: #333;
+	padding: 5px 5px;
+	margin-right: 10px;
+}
+ul.page li select{
+	border: none;
+}
+ul.page li a{
+	color: #428bca;
+}
+
+ul.page li a:hover{
+	font-weight: bold;
+	color: #31708f;
+}
+table{
+	font-size: 14px;
+}
+h5.qes,h5.qes a{
+	color: #333;
+	font-weight: bold;
+}
+
+
+#picBox a,.picBox a{
+                              display: inline-block;
+                              position: relative;
+                            }
+                            #picBox a img,.picBox a img{
+                              width: 100px;
+                              height: 120px;
+                              margin: 5px;
+                              float: left;
+                            }
+                            #picBox a span.del{
+                              position: absolute;
+                              z-index: 9;
+                              top: 0px;
+                              right: 0px;
+                              background-color: #fff;
+                              color: #ddd;
+                            }
+                            #picBox a span.del:hover{
+                              color: #333;
+                            }
+
+
+table.searchBox{ margin-bottom: 20px;}
+table.searchBox td.bold{font-weight: bold;}
+table.searchBox .margin-left{margin-left:10px;}
+
+
+.roleBox span.margin-r{margin-right: 15px;}
+.roleBox span.btn{position: relative;}
+.roleBox span.btn span.del,.roleBox span.btn span.add{position: absolute;z-index: 9;top: -11px;right: -11px;}
+.roleBox span.btn span.del{color: #4cae4c;}
+.roleBox span.btn span.add{color: #46b8da;}
+.td{white-space: nowrap;}
+/*body{min-width: 480px;}*/
+.container fieldset{padding: .35em .625em .75em;margin: 0 2px;}
+
+.container{padding-left: 0px;padding-right: 0px;}
+
+
+
+/* 在线客服
+----------------------------------------------- */
+#onlineService {
+	position:fixed;
+	_position:absolute;
+  _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight)-380+"px");
+	top:208px;
+	right:0;
+	z-index:999999;
+	display:none;
+}
+#onlineService dl {
+	position:relative;
+}
+#onlineService .service {
+	cursor:pointer;
+	background:url(../images/online_icon.gif) no-repeat;
+	width:34px;
+	height:110px;
+}
+#onlineService #pop {
+	border:3px solid #19B4EA;
+	background-color:#F2F2F2;
+	width:97px;
+	min-height:84px;
+	padding:10px;
+	position:absolute;
+	right:32px;
+	top:0;
+	display:none;
+	z-index:999999;
+}
+#onlineService #pop img {
+	margin-bottom:8px;
+}
+#onlineService .goTop {
+	display:none;
+}
+#onlineService .goTop .goBtn {
+	background:url(../images/online_go_btn.gif) no-repeat;
+	width:34px;
+	height:34px;
+	display:block;
+}

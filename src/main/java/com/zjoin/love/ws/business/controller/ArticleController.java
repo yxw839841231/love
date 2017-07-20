@@ -54,4 +54,16 @@ public class ArticleController extends BaseController{
         }
         return result;
     }
+
+    @RequestMapping("/getHotList")
+    @ResponseBody
+    public BaseResult getHotList(){
+        BaseResult result = new BaseResult();
+        try {
+            result.setValue(articleService.getAll());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

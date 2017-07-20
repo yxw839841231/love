@@ -1,19 +1,598 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword" contect="故事,story,心灵,内心深处">
+    <meta name="description" contect="灵魂深处的故事,故事，心灵鸡汤等">
     <title>故事</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="/static/modul/layui/css/layui.css" media="all" />
-</head>
+    <link rel="shortcut icon" href="http://www.guojiawei.com/public/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/modul/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/front/css/base.css">
+
+    <script type="text/javascript" src="/static/front/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="/static/front/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/modul/layui//layui.js"></script>
+    <script type="text/javascript" src="/static/front/js/vue.js"></script>
+    <script type="text/javascript" src="/static/front/js/common.js"></script>
+    <script type="text/javascript" src="/static/front/js/index.js"></script>
+
+    <style type="text/css">
+        html,body{height: auto;}
+        #loadingBar{position: fixed;z-index: 999999;width: 0px;height: 2px;background-color: #FE5187;top:51px;left:0;}
+    </style>
+    <link id="layuicss-skinlayercss" rel="stylesheet" href="/static/front/css/layer.css" media="all">
+    <script src="/static/front/js/share.js"></script>
+    <link rel="stylesheet" href="/static/front/css/share_style0_32.css"></head>
 <body>
-<ul class="layui-nav">
-    <li class="layui-nav-item"><a href="">首页</a></li>
-    <li class="layui-nav-item"><a href="">故事会</a></li>
-    <li class="layui-nav-item"><a href="">社区</a></li>
-</ul>
-</body>
-</html>
+<div id="loadingBar" class="transition" style="width: 100%; display: none;"></div>
+
+<!-- 导航 -->
+<!-- nav start -->
+<nav class="navbar navbar-fixed-top navbar-primary g-nav-bg" role="navigation" style="height: 53px;">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" style="padding-right:15px;background-color:#393D49;">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">See You</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <ul class="nav navbar-nav navinfo layui-small-show">
+                <li class="dropdown">
+                    <a href="javarcript:void(0);" class="dropdown-toggle" data-toggle="dropdown" style="padding:4px;padding-left:15px;">
+                        <img src="/static/front/images/public_photo.jpg" width="42" height="42" alt="" class="layui-circle photo">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0);" class="loginBtn">登陆</a></li>
+                        <li><a href="javascript:void(0);" class="registerBtn">注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <a class="navbar-brand layui-inline logo layui-small-hidden" href="http://www.guojiawei.com/" style="padding-left:15px;">
+                <img src="/static/front/images/logo_story.png">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color:#393D49;border-color:#009688!important;">
+            <ul class="nav navbar-nav" style="padding-left:15px;">
+                <li><a href="http://www.guojiawei.com/"><span class="glyphicon glyphicon-home"></span>&nbsp;网站首页</a></li>
+                <li class="dropdown">
+                    <a href="javarcript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="layui-icon"></i>&nbsp;文章分类<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="http://www.guojiawei.com/category/58e74d9afd6f1c31bc48fcf7">Web 前端</a></li>
+
+                        <li><a href="http://www.guojiawei.com/category/58e74d3afd6f1c31bc48fcf6">服务端&amp;数据库</a></li>
+
+                        <li><a href="http://www.guojiawei.com/category/58e74a43fd6f1c31bc48fcea">分享&amp;案例</a></li>
+
+                        <li><a href="http://www.guojiawei.com/category/58e74a87fd6f1c31bc48fceb">杂谈&amp;鸡汤</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="http://www.guojiawei.com/about" title="关于本站的说明"><i class="layui-icon"></i>&nbsp;关于本站</a></li>
+                <li><a href="http://www.guojiawei.com/event"><span class="glyphicon glyphicon-time"></span>&nbsp;时间轴</a></li>
+                <li><a href="http://www.guojiawei.com/about#suggest" target="_blank"><i class="layui-icon"></i>&nbsp;我有话说</a></li>
+                <li><a href="http://www.guojiawei.com/share" title="共享资源"><i class="layui-icon"></i>&nbsp;共享资源</a></li>
+                <li><a href="http://www.guojiawei.com/visitor" title="访客数据可视化" target="_blank"><i class="layui-icon"></i>&nbsp;访客数据</a></li>
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right layui-small-hidden">
+                <li class="dropdown">
+                    <a href="javarcript:void(0);" class="dropdown-toggle" data-toggle="dropdown" style="padding:4px;" aria-expanded="false">
+                        <img src="/static/front/images/public_photo.jpg" width="42" height="42" alt="" class="layui-circle photo">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0);" class="loginBtn">登陆</a></li>
+                        <li><a href="javascript:void(0);" class="registerBtn">注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<script type="text/javascript">
+    $('#loadingBar').stop(true,false).animate({'width':'30%'},100);
+</script>
+<!-- 顶部导航 结束 -->
+<div class="container" style="margin-top:70px; "></div>
+<div class="container">
+    <style>
+        .ggBox{height:45px;margin-top:-45px;margin-left:20px;width:100%;}
+        .gonggao{height: 40px;padding-top: 5px;width:100%;}
+        .ggc{overflow: hidden;height: 40px; float:left; position:relative;width:100%;}
+        .ggc ul{  height:10000px; float:left; position:relative;}
+        .ggc ul li{overflow: hidden;height: 40px; float:left;font-size:14px; line-height:40px;width:100%;color:#009688;}
+        .ggc ul li a{ display:inline-block; width:auto; height:40px;color:#009688;}
+    </style>
+
+    <blockquote class="layui-elem-quote pos bg-white" style="margin:0 0 10px 3px">
+            <span><i class="layui-icon"></i>&nbsp;
+              <div class="ggBox">
+                <div class="gonggao" id="gonggao">
+                    <div class="ggc">
+                      <ul id="ggcon" style="position: relative; left: 0px; top: -40px; height: 10000px;">
+                        <li>我知道你来过，^_^，可视化数据统计在这里，<a href="http://www.guojiawei.com/visitor" style="color:red;" target="_blank" title="^_^，点击前往">点击前往</a></li>
+                        <li>我知道你来过，^_^，可视化数据统计在这里，<a href="http://www.guojiawei.com/visitor" style="color:red;" target="_blank" title="^_^，点击前往">点击前往</a></li>
+                      <div class="clear"></div></ul>
+                    </div>
+                  </div>
+              </div>
+            </span>
+    </blockquote>
+    <script>
+        $(function(){
+            new clickgd_fun("gonggao","ggcon",null,null,40,40,2600,3,10,1);
+        });
+        //固定长度滚动，包括带按钮的和不带按钮的
+        function clickgd_fun(c_outid,c_id,cl_id,cr_id,c_conwid,c_gdwid,c_stemptime,c_autofx,c_speed,c_changestyel){var check_click = 0;var AutoPlayTimer = null ;var dqlinum = $("#"+c_id+" li").size();$("#"+c_id).html($("#"+c_id).html()+$("#"+c_id).html()+'<div class="clear"></div>').css("position","relative").css("left","0px").css("top","0px");if(c_autofx==1 || c_autofx==2){$("#"+c_id).css("width","10000px");}else if(c_autofx==3 || c_autofx==4){$("#"+c_id).css("height","10000px");}if($("#"+cr_id)){$("#"+cr_id).bind("click",function(){butclickfun(1);});}if($("#"+cl_id)){$("#"+cl_id).bind("click",function(){butclickfun(2);});}if(!!AutoPlayTimer){clearInterval(AutoPlayTimer);}AutoPlayTimer = setInterval(function(){butclickfun(c_autofx);},c_stemptime);$("#"+c_outid).hover(function(){clearInterval(AutoPlayTimer);},function(){AutoPlayTimer = setInterval(function(){butclickfun(c_autofx);},c_stemptime);});function butclickfun(fx){if(check_click == 1){return;}else{check_click = 1 ;var dx = (fx==1 || fx==3) ? -c_gdwid : c_gdwid;var dx_pro = (fx==1 || fx==2) && (c_autofx == 1 || c_autofx == 2) ? "left" : "top" ;var dqleft = parseInt($("#"+c_id).css(dx_pro));if( dqleft + dx < -dqlinum*c_conwid){dqleft = dqleft + dqlinum*c_conwid;$("#"+c_id).css(dx_pro,dqleft+"px");}else if(dqleft + dx > 0){dqleft = dqleft - dqlinum*c_conwid;$("#"+c_id).css(dx_pro,dqleft+"px");}dqleft = dqleft + dx ;if(c_changestyel==0){c_changestyel = Math.ceil(Math.random()*3)}if(c_changestyel == 1){jw_dochangsome(c_id,dx_pro,dqleft,c_speed,checkdo);}else if(c_changestyel == 2){tx_domove(c_id,dx_pro,dqleft,null,null,checkdo);}}}function checkdo(){check_click = 0;}}
+        //通用减速运动方法
+        function jw_dochangsome(d_id,d_pro,d_tar,d_speed,d_fun){if(document.getElementById(d_id)){var d_otar = document.getElementById(d_id);var d_dqprotar = parseInt($("#"+d_id).css(d_pro));d_tospeed = (d_tar-d_dqprotar)/d_speed;d_tospeed = d_tospeed > 0 ? Math.ceil(d_tospeed) : Math.floor(d_tospeed);d_tospeed = d_tospeed > 0 ? -d_tospeed : d_tospeed;if(d_tar == d_dqprotar){if(d_fun){d_fun();}return ;}else if(d_tar > d_dqprotar){d_dqprotar -= d_tospeed;}else if(d_tar < d_dqprotar){d_dqprotar += d_tospeed;}$("#"+d_id).css(d_pro,d_dqprotar+"px");if(!!d_otar.timer){clearTimeout(d_otar.timer);}d_otar.timer = setTimeout(function(){jw_dochangsome(d_id,d_pro,d_tar,d_speed,d_fun);},30);}}
+        //通用弹性运动方法
+        function tx_domove(s_id,s_pro,s_tonum,s_smallwid,s_bigwid,s_fun){var o_movek = document.getElementById(s_id);if(!!o_movek.timer){clearInterval(o_movek.timer);}var obj = $("#"+s_id);var speed = 0;var s_pronum = parseInt(obj.css(s_pro));o_movek.timer = setInterval(function(){var dqlef = parseInt(obj.css(s_pro));speed+=(s_tonum-dqlef)/5;speed*=0.7;if(Math.abs(speed) < 1 && Math.abs(s_tonum-s_pronum) < 1){if(s_fun){s_fun();}clearInterval(o_movek.timer);s_pronum = s_tonum ;}else{s_pronum += speed;if(s_smallwid){s_pronum = s_pronum < 0 ? 0 : s_pronum ;}if(s_bigwid){s_pronum = s_pronum > s_bigwid ? s_bigwid : s_pronum ;}}obj.css(s_pro,s_pronum+"px");},30);}
+    </script>
+
+    <div class="row">
+        <div class="col-md-8" style="min-height: 330px;" id="recomendAri">
+
+            <!-- 分页开始-->
+            <div class="bg-white g-pageBox">
+                <div class="layui-box layui-laypage pull-right">
+                    <span class="layui-laypage-prev" style="font-weight: lighter;color: #dfdfdf;">上一页</span>
+                    <span style="font-weight: lighter;">
+		            <g class="layui-small-hidden">共 <i class="text-default font-bold">19 </i> 条，每页显示 <i class="text-default font-bold">10 </i> 条，</g>
+                        共 <i class="text-default font-bold">2 </i> 页，
+                        <g class="layui-small-hidden">当前第 <i class="text-default font-bold">1 </i> 页，去第 </g>
+                        <input type="text" name="toPage" onfocus="return false;" value="1" style="width: 40px;height: 20px;margin-top:-2px; line-height: 20px;vertical-align: middle;" class="text-default font-bold"> 页
+	                </span>
+                    <a href="javascript:P.toThePageFun($(&#39;input[name=toPage]&#39;).val());" title="点击跳转" class="layui-btn layui-btn-mini text-default font-bold">	GO</a>
+                    <a href="javascript:P.toThePageFun(2);" class="layui-laypage-next text-default font-bold" data-page="4">下一页</a>
+                </div>
+            </div>
+            <!-- 分页结束-->
+
+        </div>
+        <div class="col-md-4 rig">
+            <div id="hotArcList_rig" class="layui-small-hidden"><div class="panel rigList"><div class="panel-default panel-heading text-default font-bold">#&nbsp;热门文章</div> <div class="panel-body"><ul class="list-group rigArcList"><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58eed72e63180213cb3dbdef" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：Banner轮播图（一）</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/5900029300712f294b1b9738" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：canvas时钟及相关案例</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58f87976f4bfab0a07801632" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：CSS3用transition实现边框动画效果</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58ff00b84dc76635170d605d" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：本站文章页模块悬浮</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/59153ce4ceb3892b76029e14" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：简单管理页面iframe结构</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58f969abf4bfab0a0780163b" class="transition"><i class="layui-icon transition"></i>&nbsp;生活，温暖如花</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58edc4398940164a3bac1714" class="transition"><i class="layui-icon transition"></i>&nbsp;揭秘西游记背后的系列秘密</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58f72b4c9c86f417a50901cf" class="transition"><i class="layui-icon transition"></i>&nbsp;HTML5之本地存储</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58ec37f8b39339395698393e" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：多图、多文字信息展示效果、轮播图</a></li><li class="list-group-item"><a href="http://www.guojiawei.com/arc/58ec6bf0d1635d0ff511fbef" class="transition"><i class="layui-icon transition"></i>&nbsp;分享：百度开放云Node链接MongoDB数据库</a></li></ul></div></div></div>
+            <div id="categoriesList_rig" class="layui-small-hidden">
+                <div class="panel rigList">
+                    <div class="panel-default panel-heading text-default font-bold">#&nbsp;分类列表</div>
+                    <div class="panel-body">
+                        <a href="http://www.guojiawei.com/category/58e74d9afd6f1c31bc48fcf7" class="layui-btn layui-btn-primary category_block moveBorder"> Web 前端 <span class="top transition"></span> <span class="right transition"></span> <span class="bottom transition"></span> <span class="left transition"></span></a>
+                        <a href="http://www.guojiawei.com/category/58e74d3afd6f1c31bc48fcf6" class="layui-btn layui-btn-primary category_block moveBorder"> 服务端&amp;数据库 <span class="top transition"></span> <span class="right transition"></span> <span class="bottom transition"></span> <span class="left transition"></span></a>
+                        <a href="http://www.guojiawei.com/category/58e74a43fd6f1c31bc48fcea" class="layui-btn layui-btn-primary category_block moveBorder"> 分享&amp;案例 <span class="top transition"></span> <span class="right transition"></span> <span class="bottom transition"></span> <span class="left transition"></span></a>
+                        <a href="http://www.guojiawei.com/category/58e74a87fd6f1c31bc48fceb" class="layui-btn layui-btn-primary category_block moveBorder"> 杂谈&amp;鸡汤 <span class="top transition"></span> <span class="right transition"></span> <span class="bottom transition"></span> <span class="left transition"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="newArcList_rig" class="">
+                <div class="panel rigList">
+                    <div class="panel-default panel-heading text-default font-bold">#&nbsp;最新文章</div>
+                </div>
+            </div>
+            <script type="text/javascript" src="/static/front/js/hotArcList_rig_vue.js"></script>
+            <script type="text/javascript" src="/static/front/js/newArcList_rig_vue.js"></script>
+            <script type="text/javascript" src="/static/front/js/categoriesList_rig_vue.js"></script>
+            <!--留言评论-->
+            <!--<div id="suggest_rig">
+                <div class="panel rigList">
+                    <div class="panel-default panel-heading text-default font-bold">#&nbsp;最新评论/留言</div>
+                    <div class="panel-body commentBox rigSuggest">
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1492408612012_ypWVcayagUmXAgB45xlv50WV.png" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">SeeYou&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-07-16 01:10:52</span></p>
+                                <p style="padding-top: 5px;"><p>@<span>不要你懂 ，两个bug都已经解决，再次感谢！</span></p></p>
+                                <p data-commentid="596a4c9caaeec576d68c38c5" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">0</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1500138508693_a2g74zbaIUuiZlIu1tcL4by9.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">不要你懂&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-07-14 08:49:11</span></p>
+                                <p style="padding-top: 5px;"><p>新发现2个bug，</p><p>1：个人中心，留言查看没有权限。</p><p>2：个人中心修改个人信息，重新上传头像没有权限。</p></p>
+                                <p data-commentid="596815077b348d4db35a84de" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">2</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">3</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/7.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">xyboss&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-07-11 14:30:47</span></p>
+                                <p style="padding-top: 5px;">1123123</p>
+                                <p data-commentid="59647097b9ede63289be32fe" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: block;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1492408612012_ypWVcayagUmXAgB45xlv50WV.png" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">SeeYou&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-06-29 09:14:48</span></p>
+                                <p style="padding-top: 5px;">好吧</p> <p data-commentid="59545488beafc65b71dd92f3" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">3</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: block;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1500138508693_a2g74zbaIUuiZlIu1tcL4by9.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">不要你懂&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-06-06 08:37:50</span></p>
+                                <p style="padding-top: 5px;">哈哈</p>
+                                <p data-commentid="5935f95eeef3ee4dce535688" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: block;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/1.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">测试&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-06-05 15:02:26</span></p>
+                                <p style="padding-top: 5px;">啊啊啊</p> <p data-commentid="59350202fb726f0e6d7be737" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">1</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: block;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1492408612012_ypWVcayagUmXAgB45xlv50WV.png" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">SeeYou&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-31 08:35:30</span></p> <p style="padding-top: 5px;">纯属娱乐！</p>
+                                <p data-commentid="592e0fd2f185c43380460064" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">1</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: block;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/2.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">hpu888&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-31 08:28:19</span></p>
+                                <p style="padding-top: 5px;">悲伤</p>
+                                <p data-commentid="592e0e232bbae00b18b45b49" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">1</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="./首页_SeeYou_files/100" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">天路客&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-28 22:54:02</span></p>
+                                <p style="padding-top: 5px;"><img src="./首页_SeeYou_files/54.gif" alt="[good]"></p>
+                                <p data-commentid="592ae48a1b12146d769bd5d5" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">0</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="./首页_SeeYou_files/100(1)" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">WorkingHard&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-23 08:40:16</span></p>
+                                <p style="padding-top: 5px;"><img src="./首页_SeeYou_files/36.gif" alt="[酷]">&nbsp;</p>
+                                <p data-commentid="592384f0bf43c965039e374c" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">0</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body"><img src="/static/front/images/official_1492408612012_ypWVcayagUmXAgB45xlv50WV.png" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">SeeYou&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-07-16 01:10:52</span></p>
+                                <p style="padding-top: 5px;"><p>@<span>不要你懂 ，两个bug都已经解决，再次感谢！</span></p></p> <p data-commentid="596a4c9caaeec576d68c38c5" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">0</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1500138508693_a2g74zbaIUuiZlIu1tcL4by9.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">不要你懂&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-07-14 08:49:11</span></p> <p style="padding-top: 5px;">
+                                <p>新发现2个bug，<img src="./首页_SeeYou_files/1.gif" alt="[嘻嘻]"></p><p>1：个人中心，留言查看没有权限。</p><p>2：个人中心修改个人信息，重新上传头像没有权限。</p></p>
+                                <p data-commentid="596815077b348d4db35a84de" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">2</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">3</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/7.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                            <p><span class="text-default">xyboss&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-07-11 14:30:47</span></p>
+                            <p style="padding-top: 5px;">1123123</p> <p data-commentid="59647097b9ede63289be32fe" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1492408612012_ypWVcayagUmXAgB45xlv50WV.png" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">SeeYou&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-06-29 09:14:48</span></p>
+                                <p style="padding-top: 5px;"><img src="/static/front/images/2.gif" alt="[哈哈]"></p>
+                                <p data-commentid="59545488beafc65b71dd92f3" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">3</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1500138508693_a2g74zbaIUuiZlIu1tcL4by9.jpg" width="42" height="42" alt="" class="layui-circle transition photo"> <p><span class="text-default">不要你懂&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-06-06 08:37:50</span></p>
+                                <p style="padding-top: 5px;"><img src="/static/front/images/2.gif" alt="[哈哈]"></p>
+                                <p data-commentid="5935f95eeef3ee4dce535688" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/1.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">测试&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-06-05 15:02:26</span></p>
+                                <p style="padding-top: 5px;">啊啊啊</p>
+                                <p data-commentid="59350202fb726f0e6d7be737" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">1</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/official_1492408612012_ypWVcayagUmXAgB45xlv50WV.png" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">SeeYou&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-31 08:35:30</span></p>
+                                <p style="padding-top: 5px;">纯属娱乐！</p> <p data-commentid="592e0fd2f185c43380460064" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">1</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/2.jpg" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">hpu888&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-31 08:28:19</span></p>
+                                <p style="padding-top: 5px;"><img src="./首页_SeeYou_files/41.gif" alt="[悲伤]"></p>
+                                <p data-commentid="592e0e232bbae00b18b45b49" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">1</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">1</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="./首页_SeeYou_files/100" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">天路客&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-28 22:54:02</span></p>
+                                <p style="padding-top: 5px;"><img src="./首页_SeeYou_files/54.gif" alt="[good]"></p>
+                                <p data-commentid="592ae48a1b12146d769bd5d5" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">0</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                        <div class="panel commentList" style="display: none;">
+                            <div class="panel-body">
+                                <img src="/static/front/images/100(1)" width="42" height="42" alt="" class="layui-circle transition photo">
+                                <p><span class="text-default">WorkingHard&nbsp;</span> <span class="pull-right text-default" style="color: rgb(153, 153, 153);">2017-05-23 08:40:16</span></p>
+                                <p style="padding-top: 5px;"><img src="./首页_SeeYou_files/36.gif" alt="[酷]">&nbsp;</p>
+                                <p data-commentid="592384f0bf43c965039e374c" class="text-right to"><a href="javascript:void(0);" title="赞一下" data-praise="1"><span class="glyphicon glyphicon-thumbs-up"></span>(<span class="num">0</span>)</a> <a href="javascript:void(0);" title="踩一下" data-praise="-1"><span class="glyphicon glyphicon-thumbs-down"></span>(<span class="num">0</span>)</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <script type="text/javascript" src="/static/front/js/newSuggestsList_rig_vue.js"></script>
+
+            <!--友情链接-->
+            <div id="friendlink_rig">
+                <div class="panel rigList"><div class="panel-default panel-heading text-default font-bold">#&nbsp;友情链接</div>
+                    <div class="panel-body" style="padding: 10px;">
+                        <a href="http://www.layui.com/" title="Layui框架" target="_blank" class="transition padding-left10"> Layui框架 </a>
+                        <a href="http://www.sqinf.com/" title="省钱·建站" target="_blank" class="transition padding-left10"> 省钱·建站 </a>
+                        <a href="http://www.m-finder.com/" title="M-finder博客" target="_blank" class="transition padding-left10"> M-finder博客 </a>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="/static/front/js/friendlinksList_rig_vue.js"></script>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+
+
+        $('p.tags').each(function(){
+            var _this = $(this);
+            var commentNum = _this.find('span.commentNum');
+            var id=_this.data('contentid');
+            $.post('/comment/getComments',{id:id},function(re){
+                if(re.code==200){
+                    commentNum.text(re.value);
+                }
+            });
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    $('#loadingBar').stop(true,false).animate({'width':'60%'},100);
+</script>
+<div class="g-footer">
+    <div class="container">
+        <div class="row footer-top">
+            <div class="col-sm-6 col-lg-6 layui-small-hidden">
+                <h4>
+                    <!-- <img src="https://static.bootcss.com/www/assets/img/logo.png"> -->
+                    <img src="/static/front/images/logo_story.png">
+                    <!-- 个人博客，版权所有！^_^ ... ... -->
+                </h4>
+                <p>
+                    <br>Copyright © 2014-2017 . All Rights Severed.  See You 版权所有
+                    <br><br><a class="text-default" target="_blank" href="http://www.miibeian.gov.cn/">京ICP备15033030号</a>　　
+                  <!--  <script type="text/javascript">
+                        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                        document.write(unescape("%3Cspan id='cnzz_stat_icon_5939297'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D5939297%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                    </script>-->
+                    <!--<span id="cnzz_stat_icon_5939297">
+                        <a href="http://www.cnzz.com/stat/website.php?web_id=5939297" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./首页_SeeYou_files/pic1.gif"></a></span>
+                    <script src="./首页_SeeYou_files/stat.php" type="text/javascript"></script>
+                    <script src="./首页_SeeYou_files/core.php" charset="utf-8" type="text/javascript"></script><br><br>-->
+                </p>
+            </div>
+            <div class="col-sm-6  col-lg-6">
+                <div class="row about">
+                    <div class="col-xs-4">
+                        <h4>快捷方式</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.guojiawei.com/" title="网站首页"><span class="glyphicon glyphicon-home"></span>&nbsp;网站首页</a></li>
+                            <li><a href="http://www.guojiawei.com/share" title="共享资源"><span class="glyphicon glyphicon-hdd"></span>&nbsp;共享资源</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>联系方式</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://weibo.com/bootcss" title="^_^ 期待与你交流...come on ..." target="_blank"><i class="layui-icon"></i>&nbsp;1056495235</a></li>
+                            <li><a href="mailto:guojiawei@guojiawei.com" target="_blank" title="^_^ 点这里给发电子邮件">
+                                <span class="glyphicon glyphicon-envelope"></span>&nbsp;电子邮件</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>关于我们</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.guojiawei.com/about" title="关于本站"><i class="layui-icon"></i>&nbsp;关于本站</a></li>
+                            <li><a href="http://www.guojiawei.com/event" title="时间轴"><span class="glyphicon glyphicon-time"></span>&nbsp;时间轴</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="layui-small-show text-left" style="width: 100%;">
+                    <hr> Copyright © 2017-2017 . All Rights Severed.  易天下 版权所有<br><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备15033030号</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- tools -->
+<style type="text/css">
+    .layui-fixbar li.shareBox{height: 140px;width: 50px;position: relative;display: none;}
+    .shareBox .bdsharebuttonbox{position: absolute;top:6px;left:6px;width: 38px;}
+    .shareBox .bdshare-button-style0-32 a{margin:0px 0px 6px 0px;padding:6px;width: 38px;height: 38px;line-height: 26px;border-radius:19px;background-image: none;background-color:#fff;}
+    .shareBox .bdshare-button-style0-32 a:hover{opacity: 1;filter: alpha(opacity=100);background-color:#fff;}
+    .shareBox .bdshare-button-style0-32 a a{display:block;width: 26px;height: 26px;line-height: 26px;background-image: url('/static/front/images/icon_share.png');background-repeat: no-repeat;}
+    .shareBox .bdshare-button-style0-32 a a.icon_qzone{background-position: 0px -26px;}
+    .shareBox .bdshare-button-style0-32 a:hover a.icon_qzone{background-position: -29px -26px;}
+    .shareBox .bdshare-button-style0-32 a a.icon_weixin{background-position: -58px 0px;}
+    .shareBox .bdshare-button-style0-32 a:hover a.icon_weixin{background-position: -58px -26px;}
+    .shareBox .bdshare-button-style0-32 a a.icon_qq{background-position: 0px 0px;}
+    .shareBox .bdshare-button-style0-32 a:hover a.icon_qq{background-position: -29px 0px;}
+</style>
+<!--分享工具-->
+<span id="tools">
+    <ul class="layui-fixbar">
+        <li class="shareBox" style="">
+            <div class="bdsharebuttonbox bdshare-button-style0-32" data-bd-bind="1500357852878">
+                <a href="http://www.guojiawei.com/#" data-cmd="qzone" title="分享到QQ空间" class="bds_qzone icon_qzone">
+                    <a data-cmd="qzone" class="icon_qzone transition">&nbsp;</a>
+                </a>
+                <a href="http://www.guojiawei.com/#" data-cmd="weixin" title="分享到微信" class="bds_weixin">
+                    <a data-cmd="weixin" class="icon_weixin transition">&nbsp;</a>
+                </a>
+                <a href="http://www.guojiawei.com/#" data-cmd="sqq" title="分享到QQ好友" class="bds_sqq">
+                    <a data-cmd="sqq" class="icon_qq transition">&nbsp;</a>
+                </a>
+            </div>
+        </li>
+        <li id="shareBtn" class="layui-icon layui-small-hidden"></li>
+        <li id="backTop" class="layui-icon" style="height: 50px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 1px; display: none;"></li>
+    </ul>
+</span>
+<script type="text/javascript" src="/static/front/js/tools_vue.js"></script>
+<!-- tools end -->
+
+<script type="text/javascript">
+    $('#loadingBar').stop(true,false).animate({'width':'90%'},100);
+</script>
+
+
+<!-- 登陆模块 -->
+<div id="loginBox" style="display: none;">
+    <form class="layui-form loginBox">
+        <div class="layui-form-item">
+
+            <div class="layui-inline">
+                <label class="layui-form-label">用户名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" lay-verify="login_username" name="username" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" class="layui-input" lay-verify="login_password" name="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">&nbsp;</label>
+                <div class="layui-input-inline">
+                    <button class="layui-btn dialogBtn" lay-submit="" lay-filter="login">登&nbsp;陆</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <div class="text-center">
+        <a href="javascript:void(0);" class="text-default qqLoginBtn">QQ登陆</a>&nbsp;|&nbsp;<a href="javascript:layer.closeAll();$(&#39;.registerBtn:first&#39;).click();" class="text-default">去注册</a>
+        <br><br>
+    </div>
+</div>
+<!-- 登陆结束 -->
+<!-- 注册模块 -->
+<div id="registerBox" style="display: none;">
+    <form class="layui-form loginBox">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">昵称：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" lay-verify="nikename" name="nikename" placeholder="请输入昵称">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">用户名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" lay-verify="username" name="username" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" class="layui-input" lay-verify="password" name="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">确认密码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" class="layui-input" lay-verify="repassword" name="repassword" placeholder="请再次输入密码">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">&nbsp;</label>
+                <div class="layui-input-inline">
+                    <button class="layui-btn dialogBtn" lay-submit="" lay-filter="register">注&nbsp;册</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <div class="text-center">
+        <a href="javascript:void(0);" class="text-default qqLoginBtn">QQ登陆</a>&nbsp;|&nbsp;<a href="javascript:layer.closeAll();$(&#39;.loginBtn:first&#39;).click();" class="text-default">返回登录</a>
+        <br><br>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('body').on('click','.qqLoginBtn',function(){
+        // var pc = IsPC() ? 'pc' : 'mobile';
+        var pc = 'pc';
+        var url = 'https://graph.qq.com/oauth/show?which=Login&display='+pc+'&client_id=101395138&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fwww.guojiawei.com%2Fapi%2Fuser%2Flogin%2FotherWay%2Fqq';
+        window.open(url,'_blank');
+        // window.location.href = url;
+
+    });
+
+
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+</script>
+
+<!-- 注册结束 -->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#loadingBar').stop(true,false).animate({'width':'100%'},100,function(){
+            $(this).fadeOut(2000);
+            // $('#loadingBox').fadeOut(2000);
+        });
+    });
+    layui.use(['element'],function(){
+        var element = layui.element;
+    });
+</script>
+
+</body></html>

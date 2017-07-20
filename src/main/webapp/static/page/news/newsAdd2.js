@@ -1,14 +1,14 @@
 layui.config({
-	base : "js/"
-}).use(['form','layer','jquery','layedit','laydate'],function(){
+	base: '/js' //你的模块目录
+}).use(['form','layer','jquery','layedit','laydate','zjoin'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
 		layedit = layui.layedit,
-		$ = layui.jquery;
+		$ = layui.jquery,
+		zjoin=layui.zjoin;
 
 	//创建一个编辑器
- 	var editIndex = layedit.build('news_content');
-
+	var editIndex = layedit.build('news_content');
 
 	//自定义验证规则
 	form.verify({
@@ -22,9 +22,9 @@ layui.config({
 		}
 	});
 
- 	form.on("submit(addNews)",function(data){
- 		//弹出loading
- 		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
+	form.on("submit(addNews)",function(data){
+		//弹出loading
+		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
 		$.ajax({
 			url:'/article/add',
 			type:'post',
@@ -39,7 +39,9 @@ layui.config({
 			}
 		});
 		return false;
- 	});
+	});
+
+	zjoin({image:$("#cover-image")});
 
 
-});
+}); //加载入口

@@ -230,7 +230,6 @@ layui.config({
 
 	function newsList(data){
 		//渲染数据
-		console.log(data)
 		function renderData(data){
 			var dataHtml = '';
 			if(data.length != 0){

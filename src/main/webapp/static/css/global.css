@@ -1,0 +1,76 @@
+
+.header {
+    background: #393D49;
+    position: fixed;
+    top: 0px;
+    height: 60px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.logo {
+    width: 100px;
+    color: #8D8D8D;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+    float: left;
+}
+
+.zjoin-nav {
+    left: 100px;
+    width: 600px;
+
+}
+
+.account {
+    float: right;
+    line-height: 60px;
+    top: -60px;
+    color: #e6e6e6;
+    position: relative;
+}
+
+.zjoin-content {
+    width: 1200px;
+    margin: 0px auto 0 auto;
+    min-height: 800px;
+    /*border: 1px solid red;*/
+}
+
+.content-left {
+    width: 800px;
+    float: left;
+}
+
+.content-right {
+    width: 400px;
+    float: right;
+    overflow: auto;
+}
+.block-right{
+    margin: 15px 10px;
+    width: 100%;
+    min-height: 336px;
+    background: #fafafa;
+    /*border: 1px solid red;*/
+}
+.dz{font-size: 20px;font-family: '微软雅黑', '宋体', sans-serif}
+.dz-ul li{
+    float: left;
+    line-height: 30px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    list-style: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 1pc;
+
+}
+.dz-ul li a:hover{
+    color: red;
+    cursor: pointer;
+}
+.zjoin-quote{
+    margin-bottom: 0px;
+}

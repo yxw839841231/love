@@ -103,7 +103,7 @@ layui.define(['layer', 'form'], function (exports) {
         });
     }
     var dom = $(document);
-    //绑定类zjoin-image的上传事件
+    //绑定类zjoin-upload的上传事件
     dom.on('click', ELEM, upload).on('click', '*[zjoin-upload]', upload);
     /*exports(MOD_NAME, function (options) {
      new Zjoin(options)

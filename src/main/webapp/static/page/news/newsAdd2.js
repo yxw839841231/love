@@ -43,5 +43,4 @@ layui.config({
 
 	zjoin({image:$("#cover-image")});
 
-
 }); //加载入口
